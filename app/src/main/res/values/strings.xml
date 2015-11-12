@@ -5,4 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_alerts">Alerts</string>
+    <string name="action_my_ads">My Ads</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_watchlist">Watchlist</string>
+    <string name="action_feedback">Feedback</string>
 </resources>
