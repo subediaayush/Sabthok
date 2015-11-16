@@ -10,4 +10,7 @@
     <string name="action_profile">Profile</string>
     <string name="action_watchlist">Watchlist</string>
     <string name="action_feedback">Feedback</string>
+    <string name="fab_action_1">Add to Watchlist</string>
+    <string name="fab_action_2">Post a Need</string>
+    <string name="fab_action_3">Post an Ad</string>
 </resources>

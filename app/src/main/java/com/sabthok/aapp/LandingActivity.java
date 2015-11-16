@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import static com.sabthok.aapp.Common.START_MAIN;
+import static com.sabthok.aapp.Common.START_TEST;
 
 /**
  * Created by Aayush on 11/12/2015.
@@ -23,4 +24,8 @@ public class LandingActivity extends AppCompatActivity {
     }
 
 
+    public void testButtonClicked(View view) {
+        Intent intent = new Intent (this, TestActivity.class);
+        startActivityForResult(intent, START_TEST);
+    }
 }

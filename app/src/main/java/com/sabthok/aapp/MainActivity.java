@@ -1,8 +1,10 @@
 package com.sabthok.aapp;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
+import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView;
     int Counter = 0;
-    Menu CategoriesMenu;
+//    Menu DrawerMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_action_1);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,11 +42,8 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        CategoriesMenu = navigationView.getMenu().addSubMenu("Categories");
-        InflateCategoriesMenu();
-
-        Menu ActionMenu = navigationView.getMenu().addSubMenu("Actions");
-        getMenuInflater().inflate(R.menu.menu_actions, ActionMenu);
+        Menu DrawerMenu = navigationView.getMenu();
+        InflateDrawerMenu(DrawerMenu);
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -54,13 +53,37 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-
     }
 
-    private void InflateCategoriesMenu() {
+    private void InflateDrawerMenu(Menu DrawerMenu) {
+        final int groupId = 9952;
+        DrawerMenu.add("Home");
+        DrawerMenu.getItem(0).setIcon(R.drawable.ic_home);
+
+
+        SubMenu ShopMenu = DrawerMenu.addSubMenu("Shop");
+
+        ShopMenu.add("Premium");
+        ShopMenu.add("Featured");
+        ShopMenu.add("Recommended");
+
+        for (int i=0; i< ShopMenu.size();i++){
+            // TODO change the icon resource
+            ShopMenu.getItem(i).setIcon(R.drawable.ic_drawer);
+        }
+
+        SubMenu CategoriesMenu = DrawerMenu.addSubMenu("Categories");
         CategoriesMenu.add("Mobile Phones");
         CategoriesMenu.add("Automobiles");
         CategoriesMenu.add("Furniture");
+
+        for (int i=0; i< CategoriesMenu.size();i++){
+            // TODO change the icon resource
+            CategoriesMenu.getItem(i).setIcon(R.drawable.ic_drawer);
+        }
+
+        Menu ActionMenu = navigationView.getMenu().addSubMenu("Actions");
+        getMenuInflater().inflate(R.menu.menu_actions, ActionMenu);
     }
 
     @Override
@@ -102,20 +125,6 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Toast.makeText(this, item.getTitle()+ " | " + id, Toast.LENGTH_SHORT).show();
-
-        if (id == R.id.nav_camara) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
