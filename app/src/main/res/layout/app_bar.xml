@@ -21,7 +21,14 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/app_bar_landing" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/fam"
@@ -29,24 +36,31 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         app:layout_behavior="com.sabthok.aapp.FloatingActionsMenuBehavior"
+        fab:fab_addButtonColorNormal="@color/colorAccent"
         fab:fab_labelStyle="@style/menu_labels_style">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_action_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            fab:fab_size="mini"
             fab:fab_title="@string/fab_action_1" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_action_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            fab:fab_size="mini"
             fab:fab_title="@string/fab_action_2" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_action_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            fab:fab_size="mini"
             fab:fab_title="@string/fab_action_3" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>

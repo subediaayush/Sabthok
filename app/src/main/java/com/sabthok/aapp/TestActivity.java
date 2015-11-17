@@ -3,13 +3,19 @@ package com.sabthok.aapp;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
+import me.zhanghai.android.materialprogressbar.IndeterminateHorizontalProgressDrawable;
 
 /**
  * Created by Aayush on 11/16/2015.
@@ -19,6 +25,11 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setIndeterminateDrawable(new IndeterminateHorizontalProgressDrawable(this));
 
         findViewById(R.id.pink_icon).setOnClickListener(new OnClickListener() {
             @Override
